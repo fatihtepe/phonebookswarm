@@ -1,4 +1,4 @@
-# Project-204: Docker Swarm Deployment of Phonebook Application (Python Flask) with MySQL
+# ProjectN-004: Docker Swarm Deployment of Phonebook Application (Python Flask) with MySQL
 
 ## Description
 
@@ -6,7 +6,7 @@ This project aims to deploy the Phonebook Application web application with Docke
 
 ## Problem Statement
 
-![Project_204](project-204.png)
+![Project_004](project-004.png)
 
 - Your company has recently started a project that aims to serve as phonebook web application. Your teammates have started to work on the project and developed the UI and backend part of the project and they need your help to deploy the app in development environment.
 
@@ -69,7 +69,7 @@ This project aims to deploy the Phonebook Application web application with Docke
       - Install the python `ec2instanceconnectcli` package for `mssh` command.
 
       - Connect from manager node to the `Leader-Manager` to get the `join-token` and join the swarm as manager node using `mssh` command.
-    
+
     - Create two worker nodes of the swarm. Within the `user-data` script;
 
       - Install the python `ec2instanceconnectcli` package to use `mssh` command.
@@ -89,20 +89,20 @@ This project aims to deploy the Phonebook Application web application with Docke
 ## Project Skeleton
 
 ```text
-204-docker-swarm-deployment-of-phonebook-app-on-python-flask-mysql (folder)
+004-docker-swarm-deployment-of-phonebook-app-on-python-flask-mysql (folder)
 |
-|----readme.md            # Given to the students (Definition of the project)
-|----cfn-template.yml     # To be delivered by students (Cloudformation template-Optional)
-|----phonebook-app.py     # Given to the students (Python Flask Web Application)
-|----requirements.txt     # Given to the students (List of Flask Modules/Packages)
-|----init.sql             # Given to the students (SQL statements to initialize db)
-|----main.tf              # To be delivered by students (Terraform configuration file)
-|----Dockerfile           # To be delivered by students
-|----docker-compose.yml   # To be delivered by students
+|----readme.md            (Definition of the project)
+|----cfn-template.yml     (Cloudformation template-Optional)
+|----phonebook-app.py     (Python Flask Web Application)
+|----requirements.txt     (List of Flask Modules/Packages)
+|----init.sql             (SQL statements to initialize db)
+|----main.tf              (Terraform configuration file)
+|----Dockerfile
+|----docker-compose.yml
 |----templates
-        |----index.html      # Given to the students (HTML template)
-        |----add-update.html # Given to the students (HTML template)
-        |----delete.html     # Given to the students (HTML template)
+        |----index.html      (HTML template)
+        |----add-update.html (HTML template)
+        |----delete.html     (HTML template)
 ```
 
 ## Expected Outcome
@@ -129,7 +129,7 @@ This project aims to deploy the Phonebook Application web application with Docke
 
 - Git & Github for Version Control System
 
-### At the end of the project, students will be able to;
+### At the end of the project, we will be able to;
 
 - demonstrate how to configure Dockerfile and docker-compose files.
 
