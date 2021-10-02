@@ -21,8 +21,8 @@ provider "aws" {
 
 
 locals {
-  github-repo = "https://github.com/timothy-clark/phonebookswarm.git"
-  github-file-url = "https://raw.githubusercontent.com/timothy-clark/phonebookswarm/master/"
+  github-repo = "https://github.com/fatihtepe/phonebookswarm.git"
+  github-file-url = "https://raw.githubusercontent.com/fatihtepe/phonebookswarm/master/"
 }
 
 data "aws_caller_identity" "current" {}
@@ -178,10 +178,10 @@ resource "aws_iam_role" "ec2fulltoecr" {
 resource "aws_instance" "docker-machine-leader-manager" {
   ami             = "ami-087c17d1fe0178315"
   instance_type   = "t2.micro"
-  key_name        = "mk"
+  key_name        = "aws"
   root_block_device {
       volume_size = 16
-  }  
+  }
   //  Write your pem file name
   security_groups = ["docker-swarm-sec-gr"]
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
@@ -194,7 +194,7 @@ resource "aws_instance" "docker-machine-leader-manager" {
 resource "aws_instance" "docker-machine-managers" {
   ami             = "ami-087c17d1fe0178315"
   instance_type   = "t2.micro"
-  key_name        = "mk"
+  key_name        = "aws"
   //  Write your pem file name
   security_groups = ["docker-swarm-sec-gr"]
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
@@ -209,7 +209,7 @@ resource "aws_instance" "docker-machine-managers" {
 resource "aws_instance" "docker-machine-workers" {
   ami             = "ami-087c17d1fe0178315"
   instance_type   = "t2.micro"
-  key_name        = "mk"
+  key_name        = "aws"
   //  Write your pem file name
   security_groups = ["docker-swarm-sec-gr"]
   iam_instance_profile = aws_iam_instance_profile.ec2ecr-profile.name
@@ -261,7 +261,7 @@ resource "aws_security_group" "tf-docker-sec-gr" {
 
 
 output "leader-manager-public-ip" {
-  value = aws_instance.docker-machine-leader-manager.public_ip 
+  value = aws_instance.docker-machine-leader-manager.public_ip
 }
 
 output "website-url" {
@@ -273,11 +273,11 @@ output "viz-url" {
 }
 
 output "manager-public-ip" {
-  value = aws_instance.docker-machine-managers.*.public_ip 
+  value = aws_instance.docker-machine-managers.*.public_ip
 }
 
 output "worker-public-ip" {
-  value = aws_instance.docker-machine-workers.*.public_ip 
+  value = aws_instance.docker-machine-workers.*.public_ip
 }
 
 output "ecr-repo-url" {
